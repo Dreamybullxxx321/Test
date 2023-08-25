@@ -1,0 +1,67 @@
+local Rayfield = loadstring(game:HttpGet('https://sirius.menu/rayfield'))()
+local Window = Rayfield:CreateWindow({
+    Name = "Highschool Tycoon",
+    LoadingTitle = "Rayfield Interface Suite",
+    LoadingSubtitle = "by Saucccy",
+    ConfigurationSaving = {
+       Enabled = true,
+       FolderName = nil, -- Create a custom folder for your hub/game
+       FileName = "Big Hub"
+    },
+    Discord = {
+       Enabled = false,
+       Invite = "noinvitelink", -- The Discord invite code, do not include discord.gg/. E.g. discord.gg/ABCD would be ABCD
+       RememberJoins = true -- Set this to false to make them join the discord every time they load it up
+    },
+    KeySystem = false, -- Set this to true to use our key system
+    KeySettings = {
+       Title = "Untitled",
+       Subtitle = "Key System",
+       Note = "No method of obtaining the key is provided",
+       FileName = "Key", -- It is recommended to use something unique as other scripts using Rayfield may overwrite your key file
+       SaveKey = true, -- The user's key will be saved, but if you change the key, they will be unable to use your script
+       GrabKeyFromSite = false, -- If this is true, set Key below to the RAW site you would like Rayfield to get the key from
+       Key = {"Hello"} -- List of keys that will be accepted by the system, can be RAW file links (pastebin, github etc) or simple strings ("hello","key22")
+    }
+ })
+
+ local Tab = Window:CreateTab("Main", 4483362458) -- Title, Image
+ local Section = Tab:CreateSection("Money")
+ 
+ local Button = Tab:CreateButton({
+    Name = "INFINITE MONEY (keep pressing)",
+    Callback = function()
+        while true do
+            local args = {
+                [1] = 1  -- READ THIS, FOR EVERY GIFT THAT YOU RECEIVE CHANGE IT TO THAT CORRESPONDING NUMBER (WILL GET YOU MORE MONEY)
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Functions"):WaitForChild("CollectSessionReward"):InvokeServer(unpack(args))
+            
+            -- You can adjust the delay here if needed
+            wait(0) 
+        end
+        
+    -- The function that takes place when the button is pressed
+    end,
+ })
+ local Button = Tab:CreateButton({
+    Name = "BETTER INFINITE MONEY(needs 7th reward)(keep pressing)",
+    Callback = function()
+        while true do
+            local args = {
+                [1] = 7  -- READ THIS, FOR EVERY GIFT THAT YOU RECEIVE CHANGE IT TO THAT CORRESPONDING NUMBER (WILL GET YOU MORE MONEY)
+            }
+            
+            game:GetService("ReplicatedStorage"):WaitForChild("Events"):WaitForChild("Functions"):WaitForChild("CollectSessionReward"):InvokeServer(unpack(args))
+            
+            -- You can adjust the delay here if needed
+            wait(0) 
+        end
+        
+    -- The function that takes place when the button is pressed
+    end,
+ })
+
+
+ local Paragraph = Tab:CreateParagraph({Title = "GET MORE MONEY TUTORIAL", Content = "For this to actually work, click the chest rewards and claim the first one then click on the first button of this gui, after that wait to claim the 7th reward and click the BETTER MONEY BUTTON"})
